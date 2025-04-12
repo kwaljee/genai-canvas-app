@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A canvas tool for planning and analyzing generative AI projects">
+    <title>Generative AI Canvas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Add favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+</head>
+<body>
+    <main class="container">
+        <div id="notification" class="notification"></div>
+        <header>
+            <h1>Generative AI Canvas</h1>
+            <p class="subtitle">Plan, analyze, and document your GenAI project</p>
+            <div class="score-legend">
+                <h3>Quality Score Legend</h3>
+                <div class="legend-item">
+                    <span class="legend-color high"></span>
+                    <span class="legend-text">High (70-100%): Excellent content, specific and comprehensive</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color medium"></span>
+                    <span class="legend-text">Medium (40-69%): Good content, could use more detail</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color low"></span>
+                    <span class="legend-text">Low (0-39%): Needs significant improvement</span>
+                </div>
+            </div>
+        </header>
+
+        <form class="canvas" id="canvas-form">
+            <section class="section" id="customer-segments" aria-labelledby="customer-segments-heading">
+                <h2 id="customer-segments-heading">1. Customer Segments</h2>
+                <textarea
+                    name="customer-segments"
+                    placeholder="Who are the target users?"
+                    aria-label="Customer segments description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="value-proposition" aria-labelledby="value-proposition-heading">
+                <h2 id="value-proposition-heading">2. Value Proposition</h2>
+                <textarea
+                    name="value-proposition"
+                    placeholder="What unique value does this GenAI offer?"
+                    aria-label="Value proposition description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="problem" aria-labelledby="problem-heading">
+                <h2 id="problem-heading">3. Problem</h2>
+                <textarea
+                    name="problem"
+                    placeholder="What problem are you trying to solve?"
+                    aria-label="Problem description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="genai-solution" aria-labelledby="genai-solution-heading">
+                <h2 id="genai-solution-heading">4. Generative AI Solution</h2>
+                <textarea
+                    name="genai-solution"
+                    placeholder="Describe the GenAI solution."
+                    aria-label="GenAI solution description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="data-training" aria-labelledby="data-training-heading">
+                <h2 id="data-training-heading">5. Data & Training</h2>
+                <textarea
+                    name="data-description"
+                    placeholder="What data is required? Consider sources, quality, bias, and privacy concerns."
+                    aria-label="Data requirements description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="channels" aria-labelledby="channels-heading">
+                <h2 id="channels-heading">6. Channels</h2>
+                <textarea
+                    name="channels"
+                    placeholder="How will you reach your customers?"
+                    aria-label="Channels description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="key-metrics" aria-labelledby="key-metrics-heading">
+                <h2 id="key-metrics-heading">7. Key Metrics</h2>
+                <textarea
+                    name="key-metrics"
+                    placeholder="How will you measure success?"
+                    aria-label="Key metrics description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="cost-structure" aria-labelledby="cost-structure-heading">
+                <h2 id="cost-structure-heading">8. Cost Structure</h2>
+                <textarea
+                    name="cost-structure"
+                    placeholder="What are the key costs?"
+                    aria-label="Cost structure description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="revenue-streams" aria-labelledby="revenue-streams-heading">
+                <h2 id="revenue-streams-heading">9. Revenue Streams</h2>
+                <textarea
+                    name="revenue-streams"
+                    placeholder="How will you generate revenue?"
+                    aria-label="Revenue streams description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="ethical-considerations" aria-labelledby="ethical-considerations-heading">
+                <h2 id="ethical-considerations-heading">10. Ethical Considerations</h2>
+                <textarea
+                    name="ethical-considerations"
+                    placeholder="What are the ethical considerations?"
+                    aria-label="Ethical considerations description"
+                ></textarea>
+            </section>
+        </form>
+
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <span id="sidebar-toggle" class="sidebar-toggle" title="Toggle sidebar">&times;</span>
+                <h3>Canvas Tools</h3>
+                <div class="button-group">
+                    <button id="analyze-button" type="button" aria-controls="analysis-results" title="Analyze Canvas"><span class="button-icon">🔍</span><span class="button-text">Analyze Canvas</span></button>
+                    <button id="save-button" type="button" title="Save canvas to browser storage and download as JSON"><span class="button-icon">💾</span><span class="button-text">Save Canvas</span></button>
+                    <button id="load-button" type="button" title="Load canvas from browser storage or from a JSON file"><span class="button-icon">📂</span><span class="button-text">Load Canvas</span></button>
+                    <button id="export-button" type="button" title="Export canvas as PDF for printing"><span class="button-icon">📄</span><span class="button-text">Export as PDF</span></button>
+                </div>
+
+                <div class="sidebar-info">
+                    <h4>Canvas Tools Guide</h4>
+                    <ul>
+                        <li><strong>Analyze Canvas</strong> - Uses AI to analyze your canvas content and provide recommendations for improvement.</li>
+                        <li><strong>Save Canvas</strong> - Saves your work to browser storage and downloads a JSON file that you can share or backup.</li>
+                        <li><strong>Load Canvas</strong> - Loads your work from browser storage or from a JSON file that was previously saved.</li>
+                        <li><strong>Export as PDF</strong> - Creates a printable PDF version of your canvas for sharing or documentation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section id="analysis-results" aria-live="polite"></section>
+
+        <!-- Info section moved to sidebar -->
+    </main>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-button" id="chat-button">
+            <span class="chat-icon">💬</span>
+        </div>
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+                <h3>AI Assistant</h3>
+                <div class="chat-header-buttons">
+                    <button class="header-button" id="clear-chat" title="Clear conversation">
+                        <span class="clear-icon">🗑️</span>
+                    </button>
+                    <button class="close-button" id="close-chat" title="Close chat">×</button>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            <div class="chat-input-container">
+                <textarea
+                    id="chat-input"
+                    placeholder="Ask for suggestions to improve your canvas..."
+                    rows="2"
+                    aria-label="Type your message"
+                ></textarea>
+                <button id="send-message" aria-label="Send message">
+                    <span class="send-icon">➤</span>
+                </button>
+            </div>
+            <div class="chat-status" id="chat-status">
+                <span class="status-indicator"></span>
+                <div class="model-selection">
+                    <select id="model-selector" title="Select AI model">
+                        <option value="">Loading models...</option>
+                    </select>
+                </div>
+                <button id="check-connection" class="check-connection-btn" title="Check Ollama connection">↻</button>
+            </div>
+            <div class="chat-disclaimer">
+                <p><strong>Note:</strong> AI responses may not always be accurate. Please verify important information.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Generative AI Canvas Tool</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
