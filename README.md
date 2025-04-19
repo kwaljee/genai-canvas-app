@@ -1,10 +1,10 @@
-# GenAI Canvas App
+# AI Canvas Analyzer App
 
-A comprehensive tool for planning, analyzing, and documenting generative AI projects. This application provides a structured canvas framework to help teams and individuals plan their GenAI initiatives effectively.
+A comprehensive tool for planning, analyzing, and documenting both traditional and generative AI projects. This application provides a structured canvas framework to help teams and individuals plan their AI initiatives effectively, whether they involve predictive/classification models or generative AI.
 
 ## Features
 
-- **Interactive Canvas**: 10-section framework for planning GenAI projects
+- **Interactive Canvas**: 12-section framework for planning both traditional and generative AI projects
 - **Quality Scoring**: AI-powered analysis of canvas content with percentage-based quality scores
 - **Data Persistence**: Save/load canvas data as JSON files with quality scores included
 - **PDF Export**: Generate professional report-style PDFs with proper formatting
@@ -26,16 +26,18 @@ A comprehensive tool for planning, analyzing, and documenting generative AI proj
 
 ## Canvas Sections
 
-1. **Customer Segments**: Define target users
-2. **Value Proposition**: Unique value offered by the GenAI solution
-3. **Problem**: Problem being addressed
-4. **Generative AI Solution**: Description of the GenAI solution
-5. **Data & Training**: Data requirements and considerations
-6. **Channels**: How to reach customers
-7. **Key Metrics**: Success measurements
-8. **Cost Structure**: Key costs involved
-9. **Revenue Streams**: Revenue generation methods
-10. **Ethical Considerations**: Ethical aspects of the GenAI solution
+1. **Task Type (Prediction/Generation)**: Define the core AI task (predict, classify, generate text/images/code, etc.)
+2. **Human Judgment & Oversight**: Specify what human review, judgment, or approval is required for the AI output
+3. **Action**: Describe what action will be taken based on the AI output (decision, publish, use internally)
+4. **Outcome**: Define the desired outcome or impact of using the AI output
+5. **Input Data / Prompts / Features**: Identify what input data, features, or prompts are needed to guide the AI
+6. **Training/Fine-tuning Data**: Specify what data is used to train, pre-train, or fine-tune the AI model
+7. **Feedback Loop**: Explain how you will collect feedback and use it to improve future AI outputs
+8. **Value Proposition**: Articulate the business value of the AI solution (efficiency, creativity, cost savings, accuracy)
+9. **Risks & Responsible AI**: Identify unique risks (bias, hallucination, privacy, compliance) and necessary guardrails
+10. **Model Selection & Prompt Engineering**: Describe how you will select models and/or design prompts for optimal results
+11. **Content Moderation & Quality Control**: Define processes to detect, filter, or correct inappropriate or low-quality outputs
+12. **Transparency & User Experience**: Explain how you will communicate and design user interactions with the AI system
 
 ## Setup Instructions
 
@@ -82,7 +84,7 @@ The sidebar contains all the tools you need to work with your canvas:
 
 1. Click the chat button (💬) in the bottom-right corner
 2. Select your preferred Ollama model from the dropdown
-3. Ask questions about your GenAI canvas or request suggestions
+3. Ask questions about your Blended AI canvas or request suggestions
 4. Use the "Check Connection" button to verify Ollama connectivity
 5. Clear the conversation with the trash icon when needed
 

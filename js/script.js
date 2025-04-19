@@ -208,16 +208,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Map section IDs to readable names
         const sectionNames = {
-            'customer-segments': 'Customer Segments',
+            'task-type': 'Task Type',
+            'human-judgment': 'Human Judgment & Oversight',
+            'action': 'Action',
+            'outcome': 'Outcome',
+            'input-data': 'Input Data / Prompts / Features',
+            'training-data': 'Training/Fine-tuning Data',
+            'feedback-loop': 'Feedback Loop',
             'value-proposition': 'Value Proposition',
-            'problem': 'Problem',
-            'genai-solution': 'Generative AI Solution',
-            'data-training': 'Data & Training',
-            'channels': 'Channels',
-            'key-metrics': 'Key Metrics',
-            'cost-structure': 'Cost Structure',
-            'revenue-streams': 'Revenue Streams',
-            'ethical-considerations': 'Ethical Considerations'
+            'risks-responsible-ai': 'Risks & Responsible AI',
+            'model-selection': 'Model Selection & Prompt Engineering',
+            'content-moderation': 'Content Moderation & Quality Control',
+            'transparency-ux': 'Transparency & User Experience'
         };
 
         // Format each section
@@ -251,16 +253,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Map section names to their IDs
         const sectionNameToId = {
-            'Customer Segments': 'customer-segments',
+            'Task Type': 'task-type',
+            'Human Judgment & Oversight': 'human-judgment',
+            'Action': 'action',
+            'Outcome': 'outcome',
+            'Input Data / Prompts / Features': 'input-data',
+            'Training/Fine-tuning Data': 'training-data',
+            'Feedback Loop': 'feedback-loop',
             'Value Proposition': 'value-proposition',
-            'Problem': 'problem',
-            'Generative AI Solution': 'genai-solution',
-            'Data & Training': 'data-training',
-            'Channels': 'channels',
-            'Key Metrics': 'key-metrics',
-            'Cost Structure': 'cost-structure',
-            'Revenue Streams': 'revenue-streams',
-            'Ethical Considerations': 'ethical-considerations'
+            'Risks & Responsible AI': 'risks-responsible-ai',
+            'Model Selection & Prompt Engineering': 'model-selection',
+            'Content Moderation & Quality Control': 'content-moderation',
+            'Transparency & User Experience': 'transparency-ux'
         };
 
         // Add score indicators to each section
@@ -485,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Create prompt for analysis
         const prompt = `
-You are an AI assistant analyzing a Generative AI Canvas. The canvas is a tool for planning and analyzing generative AI projects.
+You are an AI assistant analyzing an AI Canvas. The canvas is a tool for planning and analyzing both traditional and generative AI projects.
 
 Here's the current state of the canvas:
 ${formattedData}
@@ -766,7 +770,7 @@ Make your recommendations specific, actionable, and concise. Focus on how to imp
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <title>Generative AI Canvas Report</title>
+                    <title>AI Canvas Analyzer Report</title>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <style>
@@ -1052,23 +1056,23 @@ Make your recommendations specific, actionable, and concise. Focus on how to imp
                 <body>
                     <div class="report">
                         <div class="report-header">
-                            <h1 class="report-title">Generative AI Canvas Report</h1>
-                            <p class="report-subtitle">A comprehensive overview of your GenAI project</p>
+                            <h1 class="report-title">AI Canvas Analyzer Report</h1>
+                            <p class="report-subtitle">A comprehensive overview of your AI project</p>
                             <p class="report-date">Generated on ${formattedDate} at ${formattedTime}</p>
                         </div>
                         <hr>
             `;
 
             // Extract key information for executive summary
-            const problemStatement = canvasData['problem']?.textarea || 'Not defined';
+            const taskType = canvasData['task-type']?.textarea || 'Not defined';
             const valueProp = canvasData['value-proposition']?.textarea || 'Not defined';
-            const solution = canvasData['genai-solution']?.textarea || 'Not defined';
+            const outcome = canvasData['outcome']?.textarea || 'Not defined';
 
             // Add page footer only (header is already in the report-header)
             printContent += `
                 <div class="page-footer">
                     <p>Page <span class="pageNumber"></span> of <span class="totalPages"></span></p>
-                    <p>Generated using the Generative AI Canvas Tool</p>
+                    <p>Generated using the AI Canvas Analyzer Tool</p>
                 </div>
             `;
 
@@ -1077,9 +1081,9 @@ Make your recommendations specific, actionable, and concise. Focus on how to imp
                 <div class="executive-summary">
                     <h2>Executive Summary</h2>
                     <div class="summary-content">
-                        <p><strong>Problem:</strong> ${problemStatement.length > 200 ? problemStatement.substring(0, 200) + '...' : problemStatement}</p>
+                        <p><strong>Task Type:</strong> ${taskType.length > 200 ? taskType.substring(0, 200) + '...' : taskType}</p>
                         <p><strong>Value Proposition:</strong> ${valueProp.length > 200 ? valueProp.substring(0, 200) + '...' : valueProp}</p>
-                        <p><strong>GenAI Solution:</strong> ${solution.length > 200 ? solution.substring(0, 200) + '...' : solution}</p>
+                        <p><strong>Outcome:</strong> ${outcome.length > 200 ? outcome.substring(0, 200) + '...' : outcome}</p>
                     </div>
                 </div>
             `;

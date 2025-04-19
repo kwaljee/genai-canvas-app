@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A canvas tool for planning and analyzing generative AI projects">
-    <title>Generative AI Canvas</title>
+    <meta name="description" content="A canvas tool for planning and analyzing both traditional and generative AI projects">
+    <title>AI Canvas Analyzer</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Add favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
@@ -13,8 +13,8 @@
     <main class="container">
         <div id="notification" class="notification"></div>
         <header>
-            <h1>Generative AI Canvas</h1>
-            <p class="subtitle">Plan, analyze, and document your GenAI project</p>
+            <h1>AI Canvas Analyzer</h1>
+            <p class="subtitle">Plan, analyze, and document your Traditional & Generative AI projects</p>
             <div class="score-legend">
                 <h3>Quality Score Legend</h3>
                 <div class="legend-item">
@@ -33,93 +33,111 @@
         </header>
 
         <form class="canvas" id="canvas-form">
-            <section class="section" id="customer-segments" aria-labelledby="customer-segments-heading">
-                <h2 id="customer-segments-heading">1. Customer Segments</h2>
+            <section class="section" id="task-type" aria-labelledby="task-type-heading">
+                <h2 id="task-type-heading">1. Task Type (Prediction/Generation)</h2>
                 <textarea
-                    name="customer-segments"
-                    placeholder="Who are the target users?"
-                    aria-label="Customer segments description"
+                    name="task-type"
+                    placeholder="What is the core AI task? (e.g., predict, classify, generate text/images/code, etc.)"
+                    aria-label="Task type description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="human-judgment" aria-labelledby="human-judgment-heading">
+                <h2 id="human-judgment-heading">2. Human Judgment & Oversight</h2>
+                <textarea
+                    name="human-judgment"
+                    placeholder="What human review, judgment, or approval is required for the AI output?"
+                    aria-label="Human judgment description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="action" aria-labelledby="action-heading">
+                <h2 id="action-heading">3. Action</h2>
+                <textarea
+                    name="action"
+                    placeholder="What action will be taken based on the AI output? (e.g., decision, publish, use internally)"
+                    aria-label="Action description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="outcome" aria-labelledby="outcome-heading">
+                <h2 id="outcome-heading">4. Outcome</h2>
+                <textarea
+                    name="outcome"
+                    placeholder="What is the desired outcome or impact of using the AI output?"
+                    aria-label="Outcome description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="input-data" aria-labelledby="input-data-heading">
+                <h2 id="input-data-heading">5. Input Data / Prompts / Features</h2>
+                <textarea
+                    name="input-data"
+                    placeholder="What input data, features, or prompts are needed to guide the AI?"
+                    aria-label="Input data description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="training-data" aria-labelledby="training-data-heading">
+                <h2 id="training-data-heading">6. Training/Fine-tuning Data</h2>
+                <textarea
+                    name="training-data"
+                    placeholder="What data is used to train, pre-train, or fine-tune the AI model?"
+                    aria-label="Training data description"
+                ></textarea>
+            </section>
+
+            <section class="section" id="feedback-loop" aria-labelledby="feedback-loop-heading">
+                <h2 id="feedback-loop-heading">7. Feedback Loop</h2>
+                <textarea
+                    name="feedback-loop"
+                    placeholder="How will you collect feedback and use it to improve future AI outputs?"
+                    aria-label="Feedback loop description"
                 ></textarea>
             </section>
 
             <section class="section" id="value-proposition" aria-labelledby="value-proposition-heading">
-                <h2 id="value-proposition-heading">2. Value Proposition</h2>
+                <h2 id="value-proposition-heading">8. Value Proposition</h2>
                 <textarea
                     name="value-proposition"
-                    placeholder="What unique value does this GenAI offer?"
+                    placeholder="What is the business value of the AI solution? (e.g., efficiency, creativity, cost savings, accuracy)"
                     aria-label="Value proposition description"
                 ></textarea>
             </section>
 
-            <section class="section" id="problem" aria-labelledby="problem-heading">
-                <h2 id="problem-heading">3. Problem</h2>
+            <section class="section" id="risks-responsible-ai" aria-labelledby="risks-responsible-ai-heading">
+                <h2 id="risks-responsible-ai-heading">9. Risks & Responsible AI</h2>
                 <textarea
-                    name="problem"
-                    placeholder="What problem are you trying to solve?"
-                    aria-label="Problem description"
+                    name="risks-responsible-ai"
+                    placeholder="What are the unique risks (e.g., bias, hallucination, privacy, compliance) and what guardrails are needed?"
+                    aria-label="Risks and responsible AI description"
                 ></textarea>
             </section>
 
-            <section class="section" id="genai-solution" aria-labelledby="genai-solution-heading">
-                <h2 id="genai-solution-heading">4. Generative AI Solution</h2>
+            <section class="section" id="model-selection" aria-labelledby="model-selection-heading">
+                <h2 id="model-selection-heading">10. Model Selection & Prompt Engineering</h2>
                 <textarea
-                    name="genai-solution"
-                    placeholder="Describe the GenAI solution."
-                    aria-label="GenAI solution description"
+                    name="model-selection"
+                    placeholder="How will you select models and/or design prompts for optimal results? (optional)"
+                    aria-label="Model selection description"
                 ></textarea>
             </section>
 
-            <section class="section" id="data-training" aria-labelledby="data-training-heading">
-                <h2 id="data-training-heading">5. Data & Training</h2>
+            <section class="section" id="content-moderation" aria-labelledby="content-moderation-heading">
+                <h2 id="content-moderation-heading">11. Content Moderation & Quality Control</h2>
                 <textarea
-                    name="data-description"
-                    placeholder="What data is required? Consider sources, quality, bias, and privacy concerns."
-                    aria-label="Data requirements description"
+                    name="content-moderation"
+                    placeholder="What processes are in place to detect, filter, or correct inappropriate or low-quality outputs? (optional)"
+                    aria-label="Content moderation description"
                 ></textarea>
             </section>
 
-            <section class="section" id="channels" aria-labelledby="channels-heading">
-                <h2 id="channels-heading">6. Channels</h2>
+            <section class="section" id="transparency-ux" aria-labelledby="transparency-ux-heading">
+                <h2 id="transparency-ux-heading">12. Transparency & User Experience</h2>
                 <textarea
-                    name="channels"
-                    placeholder="How will you reach your customers?"
-                    aria-label="Channels description"
-                ></textarea>
-            </section>
-
-            <section class="section" id="key-metrics" aria-labelledby="key-metrics-heading">
-                <h2 id="key-metrics-heading">7. Key Metrics</h2>
-                <textarea
-                    name="key-metrics"
-                    placeholder="How will you measure success?"
-                    aria-label="Key metrics description"
-                ></textarea>
-            </section>
-
-            <section class="section" id="cost-structure" aria-labelledby="cost-structure-heading">
-                <h2 id="cost-structure-heading">8. Cost Structure</h2>
-                <textarea
-                    name="cost-structure"
-                    placeholder="What are the key costs?"
-                    aria-label="Cost structure description"
-                ></textarea>
-            </section>
-
-            <section class="section" id="revenue-streams" aria-labelledby="revenue-streams-heading">
-                <h2 id="revenue-streams-heading">9. Revenue Streams</h2>
-                <textarea
-                    name="revenue-streams"
-                    placeholder="How will you generate revenue?"
-                    aria-label="Revenue streams description"
-                ></textarea>
-            </section>
-
-            <section class="section" id="ethical-considerations" aria-labelledby="ethical-considerations-heading">
-                <h2 id="ethical-considerations-heading">10. Ethical Considerations</h2>
-                <textarea
-                    name="ethical-considerations"
-                    placeholder="What are the ethical considerations?"
-                    aria-label="Ethical considerations description"
+                    name="transparency-ux"
+                    placeholder="How will you communicate and design user interactions with the AI system? (optional)"
+                    aria-label="Transparency and user experience description"
                 ></textarea>
             </section>
         </form>
@@ -197,7 +215,7 @@
     </div>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> Generative AI Canvas Tool</p>
+        <p>&copy; <span id="current-year"></span> AI Canvas Analyzer Tool</p>
     </footer>
 
     <script src="js/script.js"></script>

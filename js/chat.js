@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.innerHTML = '';
 
         // Add a system message
-        addAIMessage("Chat history cleared. How can I help you with your GenAI Canvas?");
+        addAIMessage("Chat history cleared. How can I help you with your AI Canvas?");
 
         // Add visual feedback
         const button = document.getElementById('clear-chat');
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add welcome message
         setTimeout(() => {
-            addAIMessage(`👋 Hi there! I'm your AI assistant powered by Ollama. I can help you improve your GenAI Canvas by providing suggestions and answering questions. What would you like help with today?`);
+            addAIMessage(`👋 Hi there! I'm your AI assistant powered by Ollama. I can help you improve your AI Canvas by providing suggestions and answering questions. What would you like help with today?`);
         }, 500);
     }
 
@@ -243,14 +243,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Prepare prompt with context
             const prompt = `
-You are an AI assistant helping a user with their Generative AI Canvas.
-The canvas is a tool for planning and analyzing generative AI projects.
+You are an AI assistant helping a user with their AI Canvas.
+The canvas is a tool for planning and analyzing both traditional and generative AI projects.
 
 Here's the current state of the user's canvas:
 ${context}
 
 Based on this information, please provide helpful, constructive feedback and suggestions.
-Focus on helping the user improve their canvas entries and think more deeply about their GenAI project.
+Focus on helping the user improve their canvas entries and think more deeply about their AI project.
 
 User message: ${message}
 `;
@@ -430,16 +430,18 @@ User message: ${message}
 
         // Map section IDs to readable names
         const sectionNames = {
-            'customer-segments': 'Customer Segments',
+            'task-type': 'Task Type',
+            'human-judgment': 'Human Judgment & Oversight',
+            'action': 'Action',
+            'outcome': 'Outcome',
+            'input-data': 'Input Data / Prompts / Features',
+            'training-data': 'Training/Fine-tuning Data',
+            'feedback-loop': 'Feedback Loop',
             'value-proposition': 'Value Proposition',
-            'problem': 'Problem',
-            'genai-solution': 'Generative AI Solution',
-            'data-training': 'Data & Training',
-            'channels': 'Channels',
-            'key-metrics': 'Key Metrics',
-            'cost-structure': 'Cost Structure',
-            'revenue-streams': 'Revenue Streams',
-            'ethical-considerations': 'Ethical Considerations'
+            'risks-responsible-ai': 'Risks & Responsible AI',
+            'model-selection': 'Model Selection & Prompt Engineering',
+            'content-moderation': 'Content Moderation & Quality Control',
+            'transparency-ux': 'Transparency & User Experience'
         };
 
         // Format each section
