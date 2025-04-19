@@ -2,6 +2,10 @@
 
 A comprehensive tool for planning, analyzing, and documenting both traditional and generative AI projects. This application provides a structured canvas framework to help teams and individuals plan their AI initiatives effectively, whether they involve predictive/classification models or generative AI.
 
+
+![image](https://github.com/user-attachments/assets/c99e80c8-b142-4d04-85e3-9c11955c9496)
+
+
 ## Features
 
 - **Interactive Canvas**: 12-section framework for planning both traditional and generative AI projects
